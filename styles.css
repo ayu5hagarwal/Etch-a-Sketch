@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    justify-content: center;
+
+}
+
+.container>div{
+    border: 1px solid black;
+    height: 25px;
+    width: 25px;
+}
+
+.container>div:nth-child(16n+1){
+    width: 100%;
+    border: 0;
+    height: 0;
+}
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    font-size: 100px;
+}
+
+.container>div:hover{
+    background-color: black;
+   
+    
+}
+
+
+
