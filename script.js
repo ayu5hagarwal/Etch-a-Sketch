@@ -3,14 +3,14 @@ const container = document.querySelector(".container");
 function grid(num) {
     const totalNum = num * num;
     for (let j = 0; j < totalNum; j++) {
-            const gridSize = 500;
-            const item = document.createElement("div");
-            item.classList.add("item")
-            const itemWidth = gridSize / num;
-            const itemHeight = gridSize / num;
-            item.style.width = `${itemWidth}px`;
-            item.style.height = `${itemHeight}px`;
-            container.appendChild(item);
+        const gridSize = 500;
+        const item = document.createElement("div");
+        item.classList.add("item")
+        const itemWidth = gridSize / num;
+        const itemHeight = gridSize / num;
+        item.style.width = `${itemWidth}px`;
+        item.style.height = `${itemHeight}px`;
+        container.appendChild(item);
     }
 }
 
@@ -21,6 +21,10 @@ function createGrid() {
     if (num <= 100) {
         grid(num);
         hovering();
+    }
+    else{
+        alert("Number should be less than or equal to 100");
+        return createGrid();
     }
 }
 
