@@ -1,23 +1,14 @@
 const container = document.querySelector(".container");
 
-
-
-
-function createGrid(){
-    container.replaceChildren();
-
-
-    const num = prompt("Enter no. of grid");
-const totalNum = num * num;
-
-
+function grid(num) {
+    const totalNum = num * num;
     for (let j = 0; j < totalNum; j++) {
         if (totalNum <= 10000) {
-  
+
 
             const gridSize = 500;
 
-            
+
 
             const item = document.createElement("div");
             item.classList.add("item")
@@ -32,32 +23,59 @@ const totalNum = num * num;
             container.appendChild(item);
         }
     }
-
-const gridItems = document.querySelectorAll(".item");
-
-gridItems.forEach((item) => {
-    item.addEventListener('mouseover', () => {
-        item.style.backgroundColor = "black";
-    });
-
-    item.addEventListener('mouseout', () => {
-        item.style.backgroundColor = "black";
-    });
-});
-
 }
 
-createGrid();
+
+function createGrid() {
+    container.replaceChildren();
+
+
+    const num = prompt("Enter no. of grid");
+
+    if (num <= 100) {
+        grid(num);
+
+        hovering();
+
+    }
+
+    else {
+        alert("Enter number less than or equal to 100");
+        const num = prompt("Enter no. of grid");
+        return grid(num);
+    }
+}
+
+
+
+
+
+
+function defaultGrid() {
+    const num = 20;
+    grid(num);
+    hovering();
+}
+
+defaultGrid();
+
+
+
+function hovering() {
+    const gridItems = document.querySelectorAll(".item");
+    gridItems.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = "black";
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.style.backgroundColor = "black";
+        });
+    });
+}
 
 
 const clearButton = document.querySelector(".clearButton");
-clearButton.addEventListener('click',() => {
+clearButton.addEventListener('click', () => {
     return createGrid();
 })
-
-
-
-
-
-
-
