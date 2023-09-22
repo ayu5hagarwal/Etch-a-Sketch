@@ -8,7 +8,9 @@
     justify-content: center;
     width:500px;
     height: 500px;
-    margin: 100px 700px;
+    margin-left:700px;
+    margin-right: 700px;
+    margin-bottom: 40px;
 }
 
 .item{
@@ -18,9 +20,9 @@
 }
 
 .clearButton{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+   margin-left: 880px;
+   margin-right: 880px;
+   font-size: 30px;
 }
 
 

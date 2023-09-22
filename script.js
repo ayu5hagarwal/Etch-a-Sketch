@@ -3,63 +3,33 @@ const container = document.querySelector(".container");
 function grid(num) {
     const totalNum = num * num;
     for (let j = 0; j < totalNum; j++) {
-        if (totalNum <= 10000) {
-
-
             const gridSize = 500;
-
-
-
             const item = document.createElement("div");
             item.classList.add("item")
-
-
             const itemWidth = gridSize / num;
             const itemHeight = gridSize / num;
-
             item.style.width = `${itemWidth}px`;
             item.style.height = `${itemHeight}px`;
-
             container.appendChild(item);
-        }
     }
 }
 
 
 function createGrid() {
     container.replaceChildren();
-
-
     const num = prompt("Enter no. of grid");
-
     if (num <= 100) {
         grid(num);
-
         hovering();
-
-    }
-
-    else {
-        alert("Enter number less than or equal to 100");
-        const num = prompt("Enter no. of grid");
-        return grid(num);
     }
 }
-
-
-
-
-
 
 function defaultGrid() {
     const num = 20;
     grid(num);
     hovering();
 }
-
 defaultGrid();
-
-
 
 function hovering() {
     const gridItems = document.querySelectorAll(".item");
