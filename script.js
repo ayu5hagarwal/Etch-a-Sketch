@@ -1,20 +1,37 @@
-
-
-// make the Grid Container
-
 const container = document.querySelector(".container");
 
 
 
-//Create a 16x16 grid
 
-for(let i = 0; i <16*16;i++){
-    const item = document.createElement("div");
-    item.classList.add("item")
-    container.appendChild(item);
-}
+function createGrid(){
+    container.replaceChildren();
 
-//added hovering effect
+
+    const num = prompt("Enter no. of grid");
+const totalNum = num * num;
+
+
+    for (let j = 0; j < totalNum; j++) {
+        if (totalNum <= 10000) {
+  
+
+            const gridSize = 500;
+
+            
+
+            const item = document.createElement("div");
+            item.classList.add("item")
+
+
+            const itemWidth = gridSize / num;
+            const itemHeight = gridSize / num;
+
+            item.style.width = `${itemWidth}px`;
+            item.style.height = `${itemHeight}px`;
+
+            container.appendChild(item);
+        }
+    }
 
 const gridItems = document.querySelectorAll(".item");
 
@@ -27,4 +44,20 @@ gridItems.forEach((item) => {
         item.style.backgroundColor = "black";
     });
 });
+
+}
+
+createGrid();
+
+
+const clearButton = document.querySelector(".clearButton");
+clearButton.addEventListener('click',() => {
+    return createGrid();
+})
+
+
+
+
+
+
 
