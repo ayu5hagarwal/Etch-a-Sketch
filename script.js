@@ -17,7 +17,7 @@ function grid(num) {
 
 function createGrid() {
     container.replaceChildren();
-    const num = prompt("Enter no. of grid");
+    const num = prompt("Enter Grid size");
     if (num <= 100) {
         grid(num);
         hovering();
