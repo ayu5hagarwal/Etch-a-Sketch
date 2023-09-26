@@ -3,7 +3,7 @@ const container = document.querySelector(".container");
 function grid(num) {
     const totalNum = num * num;
     for (let j = 0; j < totalNum; j++) {
-        const gridSize = 500;
+        const gridSize = 490;
         const item = document.createElement("div");
         item.classList.add("item")
         const itemWidth = gridSize / num;
@@ -35,6 +35,27 @@ function defaultGrid() {
 }
 defaultGrid();
 
+function changeGridColor() {
+    let a = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    let c = Math.floor(Math.random() * 256);
+    return `rgb(${a}, ${b}, ${c})`;
+}
+
+function raibowColour(){
+    const gridItems = document.querySelectorAll(".item");
+    gridItems.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = changeGridColor();
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.style.backgroundColor = changeGridColor();
+        });
+    });
+}
+
+
 function hovering() {
     const gridItems = document.querySelectorAll(".item");
     gridItems.forEach((item) => {
@@ -53,3 +74,17 @@ const clearButton = document.querySelector(".clearButton");
 clearButton.addEventListener('click', () => {
     return createGrid();
 })
+
+
+
+const rainbowButton = document.querySelector(".rainbowButton");
+rainbowButton.addEventListener('click',() =>{
+                return raibowColour();
+});
+
+
+
+const blackButton = document.querySelector(".blackButton");
+blackButton.addEventListener('click',() =>{
+                return hovering();
+});
