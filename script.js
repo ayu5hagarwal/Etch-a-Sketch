@@ -69,6 +69,19 @@ function hovering() {
     });
 }
 
+function clear1() {
+    const gridItems = document.querySelectorAll(".item");
+    gridItems.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = "white";
+        });
+
+        item.addEventListener('mouseout', () => {
+            item.style.backgroundColor = "white";
+        });
+    });
+}
+
 
 const clearButton = document.querySelector(".clearButton");
 clearButton.addEventListener('click', () => {
@@ -87,4 +100,9 @@ rainbowButton.addEventListener('click',() =>{
 const blackButton = document.querySelector(".blackButton");
 blackButton.addEventListener('click',() =>{
                 return hovering();
+});
+
+const clear1Button = document.querySelector(".clear1Button");
+clear1Button.addEventListener('click',() =>{
+                return clear1();
 });
