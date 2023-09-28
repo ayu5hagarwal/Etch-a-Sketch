@@ -1,4 +1,4 @@
-const container = document.querySelector(".container");
+const containingItems = document.querySelector(".containingItems");
 
 function grid(num) {
     const totalNum = num * num;
@@ -10,19 +10,19 @@ function grid(num) {
         const itemHeight = gridSize / num;
         item.style.width = `${itemWidth}px`;
         item.style.height = `${itemHeight}px`;
-        container.appendChild(item);
+        containingItems.appendChild(item);
     }
 }
 
 
 function createGrid() {
-    container.replaceChildren();
+    containingItems.replaceChildren();
     const num = prompt("Enter Grid size");
     if (num <= 100) {
         grid(num);
-        hovering();
+        hovering("black", "black");
     }
-    else{
+    else {
         alert("Number should be less than or equal to 100");
         return createGrid();
     }
@@ -31,7 +31,7 @@ function createGrid() {
 function defaultGrid() {
     const num = 20;
     grid(num);
-    hovering();
+    hovering("black", "black");
 }
 defaultGrid();
 
@@ -42,7 +42,7 @@ function changeGridColor() {
     return `rgb(${a}, ${b}, ${c})`;
 }
 
-function raibowColour(){
+function raibowColour() {
     const gridItems = document.querySelectorAll(".item");
     gridItems.forEach((item) => {
         item.addEventListener('mouseover', () => {
@@ -56,53 +56,32 @@ function raibowColour(){
 }
 
 
-function hovering() {
+function hovering(mouseOverColour, mouseOutColour) {
     const gridItems = document.querySelectorAll(".item");
     gridItems.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = "black";
+            item.style.backgroundColor = mouseOverColour;
         });
 
         item.addEventListener('mouseout', () => {
-            item.style.backgroundColor = "black";
-        });
-    });
-}
-
-function clear1() {
-    const gridItems = document.querySelectorAll(".item");
-    gridItems.forEach((item) => {
-        item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = "white";
-        });
-
-        item.addEventListener('mouseout', () => {
-            item.style.backgroundColor = "white";
+            item.style.backgroundColor = mouseOutColour;
         });
     });
 }
 
 
-const clearButton = document.querySelector(".clearButton");
-clearButton.addEventListener('click', () => {
-    return createGrid();
-})
 
+
+const newGridButton = document.querySelector(".newGridButton");
+newGridButton.addEventListener('click', () => { return createGrid(); })
 
 
 const rainbowButton = document.querySelector(".rainbowButton");
-rainbowButton.addEventListener('click',() =>{
-                return raibowColour();
-});
-
+rainbowButton.addEventListener('click', () => { return raibowColour(); });
 
 
 const blackButton = document.querySelector(".blackButton");
-blackButton.addEventListener('click',() =>{
-                return hovering();
-});
+blackButton.addEventListener('click', () => { return hovering("black", "black"); });
 
-const clear1Button = document.querySelector(".clear1Button");
-clear1Button.addEventListener('click',() =>{
-                return clear1();
-});
+const clearButton = document.querySelector(".clearButton");
+clearButton.addEventListener('click', () => { return hovering("white", "white"); });

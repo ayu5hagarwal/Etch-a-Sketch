@@ -2,13 +2,18 @@
     box-sizing: border-box;
   }
 
-.container{
+  body{
+    background-color: #C5C6D0;
+  }
+
+.containingItems{
     display: flex;
     flex: 0 0 0;
     flex-wrap: wrap; 
     justify-content: center;
     width:490px;
     height: 490px;
+    background-color: white;
 }
 
 .item{
@@ -20,7 +25,7 @@
     flex-shrink: 1;
 }
 
-.clearButton,.rainbowButton,.blackButton,.clear1Button{
+.newGridButton,.rainbowButton,.blackButton,.clearButton{
     font-size: 20px;
     height: 35px;
     width: 100px;
@@ -35,12 +40,23 @@ h1{
     font-size: 150px;
 }
 
-.container0{
+.containerContainingBothContainer{
     display: flex;
-    flex-direction: row;
-    
+    flex-direction: row;  
+    justify-content: center;
+    gap: 20px;
 }
 
+
+.containerButtons{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+
+.containerContainingContainerWithItems{
+    margin-right:50px ;
+}
 
 
 
